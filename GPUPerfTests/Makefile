@@ -7,10 +7,11 @@ CXXFLAGS += $(CPPFLAGS) $(INC_FILES) -std=c++11
 LDFLAGS_LINUX = -lvulkan -lpthread
 LDFLAGS_DARWIN = -lMoltenVK -framework Foundation -framework CoreFoundation -framework CoreGraphics -framework QuartzCore -framework IOKit -framework IOSurface -framework AppKit -framework Metal -lpthread
 LDFLAGS_GUI = -lGL -lglfw -lfreetype -lz `pkg-config --libs gtk+-3.0` -ldl
+LDFLAGS += -L/data/data/com.termux/files/usr/lib -landroid-spawn
 DEFINES =
 
 # OUTPUT
-OUT_DIR = x64
+OUT_DIR = aarch64
 BUILD_DIR = $(OUT_DIR)/build
 BINARY = $(OUT_DIR)/GPUPerfTests
 
@@ -19,14 +20,17 @@ BINARY = $(OUT_DIR)/GPUPerfTests
 LIBRARY_VULKAN = ../Libraries/Vulkan
 LIBRARY_IMGUI = ../Libraries/imgui-1.88
 LIBRARY_FREETYPE = ../Libraries/freetype-2.12.1
-LIBRARY_GLEW = ../Libraries/glew-2.1.0
-LIBRARY_GLFW = ../Libraries/glfw-3.3.2.bin.WIN64
+# LIBRARY_GLEW = ../Libraries/glew-2.1.0
+LIBRARY_GLEW = /data/data/com.termux/files/usr
+
+# LIBRARY_GLFW = ../Libraries/glfw-3.3.2.bin.WIN64
 LIBRARY_LIBSPNG = ../Libraries/libspng-0.7.2
 LIBRARY_NATIVEFILEDIALOGEXTENDED = ../Libraries/nativefiledialog-extended-1.0.1
-LINKER_EXTRA_LIBS = $(LIBRARY_NATIVEFILEDIALOGEXTENDED)/build/src/libnfd.a $(LIBRARY_GLEW)/lib/Linux/libGLEW.a
+# LINKER_EXTRA_LIBS = $(LIBRARY_NATIVEFILEDIALOGEXTENDED)/build/src/libnfd.a $(LIBRARY_GLEW)/lib/Linux/libGLEW.a
+LINKER_EXTRA_LIBS = $(LIBRARY_NATIVEFILEDIALOGEXTENDED)/build/src/libnfd.a $(LIBRARY_GLEW)/lib/libGLEW.a
 
 # EMBEDDED RESOURCES
-BINARIZER = ../AssetBinarizer/x64/AssetBinarizer
+BINARIZER = ../AssetBinarizer/aarch64/AssetBinarizer
 
 SHADER_DIR = $(SRC_DIR)/shaders
 ICON_DIR = icon
