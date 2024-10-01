@@ -45,6 +45,10 @@
 #include <spng.h>
 #endif
 
+#define __CPU_SETSIZE 1024
+#define __NCPUBITS (8 * sizeof(__cpu_mask))
+typedef unsigned long int __cpu_mask;
+
 #define _HELPER_BYTE_SUFFIX "B"
 #define _HELPER_BIT_SUFFIX  "b"
 #define _HELPER_EXBI_VALUE  (1152921504606846976ULL)
