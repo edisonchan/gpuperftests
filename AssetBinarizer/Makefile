@@ -1,5 +1,5 @@
-BUILD_DIR=x64/build
-OUT_DIR=x64
+BUILD_DIR=aarch64/build
+OUT_DIR=aarch64
 SRC_DIR=src
 BINARY=$(OUT_DIR)/AssetBinarizer
 
