@@ -6,7 +6,9 @@ CFLAGS += $(CPPFLAGS) $(INC_FILES)
 CXXFLAGS += $(CPPFLAGS) $(INC_FILES) -std=c++11
 LDFLAGS_LINUX = -lvulkan -lpthread
 LDFLAGS_DARWIN = -lMoltenVK -framework Foundation -framework CoreFoundation -framework CoreGraphics -framework QuartzCore -framework IOKit -framework IOSurface -framework AppKit -framework Metal -lpthread
-LDFLAGS_GUI = -lGL -lglfw -lfreetype -lz `pkg-config --libs gtk+-3.0` -ldl
+#LDFLAGS_GUI = -lGL -lglfw -lfreetype -lz `pkg-config --libs gtk+-3.0` -ldl
+# fix for D9500 Mali G1-Ultra X300 Pro
+LDFLAGS_GUI = -lGL -lglfw -lfreetype -lz `pkg-config --libs gtk+-3.0` -ldl -lEGL
 LDFLAGS += -L/data/data/com.termux/files/usr/lib -landroid-spawn
 DEFINES =
 
